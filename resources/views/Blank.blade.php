@@ -1,4 +1,6 @@
-@include('Templateparts.Upper')
+@extends('Templateparts.Finaltemplate')
+
+@section('pagecontent')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -52,4 +54,4 @@
   </div>
   <!-- /.content-wrapper -->
 
-@include('Templateparts.Lower')
+@stop

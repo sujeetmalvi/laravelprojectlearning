@@ -10,7 +10,7 @@
 <!-- Bootstrap 4 -->
 <script src="{{url('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js')}}"></script>
+<script src="{{url('plugins/chart.js/Chart.min.js')}}"></script>
 <!-- Sparkline -->
 <script src="{{url('plugins/sparklines/sparkline.js')}}"></script>
 <!-- JQVMap -->

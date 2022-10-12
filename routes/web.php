@@ -33,4 +33,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class,'index']);
     Route::get('/blank', [DashboardController::class,'blank']);
     Route::get('/users', [UserController::class,'list']);
+    Route::get('/userprofile', [UserController::class,'userprofile']);
+    
 });

@@ -10,7 +10,13 @@ class UserController extends Controller
     //
 
     public function list(){
-        $users = User::all();
+        $users = User::paginate(10);
+        // $users = User::cursorPaginate(10);
         return view('users',['users'=>$users]);
+    }
+
+    public function userprofile(){
+        $users = auth()->user();
+        return view('userprofile',['users'=>$users]);
     }
 }

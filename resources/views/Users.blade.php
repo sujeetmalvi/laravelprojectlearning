@@ -1,5 +1,6 @@
-@include('Templateparts.Upper')
+@extends('Templateparts.Finaltemplate')
 
+@section('pagecontent')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -7,12 +8,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>Users List</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
+              <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+              <li class="breadcrumb-item active">Users List</li>
             </ol>
           </div>
         </div>
@@ -53,7 +54,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($users as $user)                  
+                  @forelse ($users as $user)                  
                     <tr>
                       <td>{{$user->id}}</td>
                       <td>{{$user->name}}</td>
@@ -61,7 +62,11 @@
                       <td><span class="tag tag-success">{{$user->created_at}}</span></td>
                       <td>{{$user->updated_at}}</td>
                     </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                      <td colspan="5">No Users found.</td>
+                    </tr>
+                    @endforelse
                   </tbody>
                 </table>
               </div>
@@ -70,10 +75,13 @@
             <!-- /.card -->
           </div>
         </div>
-
+        <div style="float:right">
+          {!! $users->links() !!}
+        </div>
     </section>
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-@include('Templateparts.Lower')
+  @stop
